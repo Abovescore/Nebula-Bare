@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loading</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <style>
         body, html {
             margin: 0;
@@ -14,7 +16,7 @@
             overflow: hidden;
             background-color: black;
             color: white;
-            font-family: Arial, sans-serif;
+            font-family: 'Atkinson Hyperlegible', sans-serif;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -53,12 +55,16 @@
             font-size: 36px;
             margin-bottom: 10px;
             z-index: 1;
+            font-family: 'Afacad Flux', sans-serif;
+            font-weight: 600;
         }
 
         .sub-text {
             font-size: 16px;
             margin-bottom: 100px;
             z-index: 1;
+            font-family: 'Atkinson Hyperlegible Next', sans-serif;
+            font-weight: 300;
         }
 
         .footer {
@@ -113,7 +119,7 @@
     <div class="footer">
         <span class="footer-text">Powered by</span>
         <a href="https://zkit.above.gay" target="_blank">
-            <img class="icon" src="zkit.png" alt="ZKit Icon">
+            <img class="icon" src="https://bare.nx.above.gay/zkit.png" alt="ZKit Icon">
         </a>
     </div>
     <div class="loading-bar-container">
@@ -121,41 +127,32 @@
     </div>
 
     <script>
-        // Create stars
-        function createStars() {
-            const starsContainer = document.getElementById('stars');
-            const numberOfStars = 200;
-            
-            for (let i = 0; i < numberOfStars; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                
-                // Random position
-                const x = Math.random() * 100;
-                const y = Math.random() * 100;
-                
-                // Random size
-                const size = Math.random() * 2;
-                
-                // Random opacity
-                const opacity = Math.random() * 0.8 + 0.2;
-                
-                star.style.left = `${x}%`;
-                star.style.top = `${y}%`;
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                star.style.opacity = opacity;
-                
-                // Add twinkling effect with random durations
-                const duration = Math.random() * 3 + 2;
-                const delay = Math.random() * 5;
-                star.style.animation = `twinkle ${duration}s infinite ${delay}s`;
-                
-                starsContainer.appendChild(star);
-            }
-        }
+        const starsContainer = document.getElementById('stars');
+        const numberOfStars = 200;
         
-        createStars();
+        for (let i = 0; i < numberOfStars; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+            
+            const size = Math.random() * 2;
+            
+            const opacity = Math.random() * 0.8 + 0.2;
+            
+            star.style.left = `${x}%`;
+            star.style.top = `${y}%`;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.opacity = opacity;
+            
+            const duration = Math.random() * 3 + 2;
+            const delay = Math.random() * 5;
+            star.style.animation = `twinkle ${duration}s infinite ${delay}s`;
+            
+            starsContainer.appendChild(star);
+        }
     </script>
 </body>
 </html>
