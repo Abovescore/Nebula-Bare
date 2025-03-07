@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.2;
+            }
+        }
+
+        .main-text {
+            font-size: 36px;
+            margin-bottom: 10px;
+            z-index: 1;
+        }
+
+        .sub-text {
+            font-size: 16px;
+            margin-bottom: 100px;
+            z-index: 1;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 80px;
+            display: flex;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .footer-text {
+            margin-right: 10px;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        .loading-bar-container {
+            position: absolute;
+            bottom: 40px;
+            width: 100%;
+            height: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .loading-bar {
+            height: 100%;
+            width: 20%;
+            background-color: white;
+            animation: loading 2s infinite;
+        }
+
+        @keyframes loading {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(500%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="main-text">Deploying website...</div>
+    <div class="sub-text">Be patient, this may take a while</div>
+    <div class="footer">
+        <span class="footer-text">Powered by</span>
+        <a href="https://zkit.above.gay" target="_blank">
+            <img class="icon" src="zkit.png" alt="ZKit Icon">
+        </a>
+    </div>
+    <div class="loading-bar-container">
+        <div class="loading-bar"></div>
+    </div>
+
+    <script>
+        // Create stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = 200;
+            
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Random position
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                
+                // Random size
+                const size = Math.random() * 2;
+                
+                // Random opacity
+                const opacity = Math.random() * 0.8 + 0.2;
+                
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.opacity = opacity;
+                
+                // Add twinkling effect with random durations
+                const duration = Math.random() * 3 + 2;
+                const delay = Math.random() * 5;
+                star.style.animation = `twinkle ${duration}s infinite ${delay}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        createStars();
+    </script>
+</body>
+</html>
