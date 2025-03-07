@@ -2,8 +2,10 @@
 
 const table1 = ["https://now.gg.zkit.above.gay", "https://now.gg.zkit.above.gay/hub"];
 const table2 = { 
-  "https://blocked.com": "https://alternative.com",
-  "https://notallowed.com": "https://safe.com"
+  "https://now.gg": "https://now.gg.zkit.above.gay/hub",
+  "https://now.gg/": "https://now.gg.zkit.above.gay/hub",
+  "http://now.gg": "https://now.gg.zkit.above.gay/hub",
+  "http://now.gg/": "https://now.gg.zkit.above.gay/hub"
 };
 
 let destination = "";
