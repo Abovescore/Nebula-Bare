@@ -1,6 +1,6 @@
 "use strict";
 
-const table1 = ["https://now.gg.zkit.above.gay", "https://now.gg.zkit.above.gay/hub"];
+const table1 = ["https://now.gg.zkit.above.gay", "https://now.gg.zkit.above.gay/hub", "https://now.gg.zkit.above.gay/", "https://now.gg.zkit.above.gay/hub/", "http://now.gg.zkit.above.gay", "http://now.gg.zkit.above.gay/hub", "http://now.gg.zkit.above.gay/", "http://now.gg.zkit.above.gay/hub/"];
 const table2 = { 
   "https://now.gg": "https://now.gg.zkit.above.gay/hub",
   "https://now.gg/": "https://now.gg.zkit.above.gay/hub",
