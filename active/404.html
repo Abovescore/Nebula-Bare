@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -14,36 +14,191 @@
     <meta
       name="theme-color"
       media="(prefers-color-scheme: dark)"
-      content="#434c5e"
+      content="#666"
     />
     <meta name="googlebot" content="noindex, nofollow, nosnippet" />
     <base href="/" />
     <link rel="shortcut icon" content="favicon.ico" />
-    <link rel="stylesheet" href="index.css" />
-  </head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --primary-color: #666;
+        --primary-color-light: #888;
+        --background-color: #f0f0f0;
+        --background-color-dark: #ddd;
+        --text-color: #222;
+        --error-color: #900;
+        --success-color: #080;
+        --border-radius: 8px;
+        --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --divider-color: #aaa;
+      }
 
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --primary-color: #aaa;
+          --primary-color-light: #ccc;
+          --background-color: #222;
+          --background-color-dark: #333;
+          --text-color: #ddd;
+          --error-color: #900;
+          --success-color: #080;
+          --divider-color: #666;
+        }
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Atkinson Hyperlegible', sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        padding: 0 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 0;
+        width: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .error-card {
+        background-color: var(--background-color-dark);
+        border-radius: var(--border-radius);
+        padding: 30px;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 20px;
+      }
+
+      .logo-wrapper {
+        margin-bottom: 24px;
+        text-align: center;
+      }
+
+      .logo-wrapper h1 {
+        font-weight: 700;
+        font-size: 2.2rem;
+        color: var(--primary-color);
+      }
+
+      .desc {
+        margin-bottom: 24px;
+        text-align: center;
+      }
+
+      .desc p {
+        margin-bottom: 16px;
+        font-size: 1.1rem;
+      }
+
+      #uv-error {
+        color: var(--error-color);
+        font-weight: bold;
+      }
+
+      #uv-error-code {
+        display: block;
+        background-color: rgba(0, 0, 0, 0.05);
+        padding: 10px;
+        border-radius: var(--border-radius);
+        margin: 16px 0;
+        font-family: monospace;
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+
+      button {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        display: block;
+        margin: 20px auto 0;
+      }
+
+      button:hover {
+        background-color: var(--primary-color-light);
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px 0;
+        color: var(--text-color);
+        opacity: 0.8;
+        font-size: 0.9rem;
+        margin-top: auto;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        border-top: 1px solid var(--divider-color);
+      }
+
+      footer a {
+        color: var(--primary-color);
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 600px) {
+        .logo-wrapper h1 {
+          font-size: 1.8rem;
+        }
+        
+        .desc p {
+          font-size: 1rem;
+        }
+        
+        footer {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
   <body>
-    <div class="logo-wrapper left-margin">
-      <h1>Ultraviolet | Error</h1>
-    </div>
-    <div class="desc left-margin">
-      <p>The proxies Service Worker is not registered on your browser. Please click the button below, and refresh the page.</p>
-      <p id="uv-error"></p>
-      <code id="uv-error-code"></code>
-      <button id="uv-register-sw" value="Register service worker">
-        Register ServiceWorker
-      </button>
+    <div class="container">
+      <div class="error-card">
+        <div class="logo-wrapper">
+          <h1>Ultraviolet | Error</h1>
+        </div>
+        <div class="desc">
+          <p>The proxy's Service Worker is not registered on your browser. Please click the button below, and refresh the page.</p>
+          <p id="uv-error"></p>
+          <code id="uv-error-code"></code>
+          <button id="uv-register-sw">
+            Register ServiceWorker
+          </button>
+        </div>
+      </div>
     </div>
     <footer>
-      <a
-        title="License information"
-        href="credits.html"
-        style="margin-left: auto"
-        >Credits</a
-      >
-      <span>Ultraviolet &copy; TN 2022</span>
+      <a title="License information" href="credits.html">Credits</a>
+      <span>Ultraviolet &copy; TN 2025</span>
     </footer>
-    <script src="uv/uv.bundle.js" charset=“UTF-8”></script>
+    <script src="uv/uv.bundle.js" charset="UTF-8"></script>
     <script src="uv/uv.config.js"></script>
     <script src="register-sw.js"></script>
     <script src="error.js"></script>
